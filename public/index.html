@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#123c35" />
+  <title>Patan Nimraa Firdos | Online Pharmacy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">✚</span><span><b>Patan Nimraa Firdos</b><small>ONLINE PHARMACY</small></span></a>
+    <nav><a href="#shop">Shop</a><a href="#how">How it works</a><button id="ordersNav" class="nav-link hidden">My orders</button></nav>
+    <div class="top-actions"><span id="welcome" class="welcome"></span><button id="authBtn" class="btn btn-outline">Login</button><button id="logoutBtn" class="btn btn-dark hidden">Logout</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pulse"></span> YOUR HEALTH, OUR PRIORITY</span>
+        <h1>Good health<br>starts <em>here.</em></h1>
+        <p>Everyday essentials and trusted medicines, made simple to find and order.</p>
+        <a class="btn btn-light" href="#shop">Explore medicines <span>↗</span></a>
+        <div class="hero-proof"><span>✓</span> Easy ordering <span>✓</span> Clear pricing <span>✓</span> Stock updates</div>
+      </div>
+      <div class="hero-art" aria-label="Healthcare illustration">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="medicine-card card-back"><span class="pill-icon">✚</span><b>Care that<br>comes first</b><small>YOUR WELLNESS MATTERS</small></div>
+        <div class="bottle"><div class="bottle-cap"></div><div class="bottle-label"><span>✚</span><b>daily<br>care</b><small>HEALTH ESSENTIALS</small></div></div>
+        <div class="art-plus plus-one">+</div><div class="art-plus plus-two">+</div>
+        <div class="floating-note"><span class="note-check">✓</span><span><b>Simple & secure</b><small>Order in a few steps</small></span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div><b>01</b><span>Browse medicines<small>Find what you need</small></span></div>
+      <div><b>02</b><span>Check prices<small>Know the cost upfront</small></span></div>
+      <div><b>03</b><span>Place an order<small>Track order status</small></span></div>
+    </section>
+
+    <section id="shop" class="shop-section">
+      <div class="section-heading"><div><span class="eyebrow">THE MEDICINE STORE</span><h2>Find your essentials<span>.</span></h2><p>Search our catalogue and add available items to your cart.</p></div><div class="catalog-count" id="catalogCount">Loading catalogue…</div></div>
+      <div class="shop-tools"><label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Search medicine, category or brand…"></label><select id="categoryFilter"><option value="">All categories</option></select><button id="clearSearch" class="btn btn-soft">Clear</button></div>
+      <div id="medicineGrid" class="medicine-grid"><div class="loading">Loading medicines…</div></div>
+    </section>
+
+    <section id="how" class="how-section"><div><span class="eyebrow">A BETTER WAY TO ORDER</span><h2>Care made<br><em>convenient.</em></h2></div><p>Search the catalogue, review medicine details and prices, then place your order. Your order history stays available in your account.</p></section>
+
+    <section id="accountArea" class="account-area hidden">
+      <div class="section-heading"><div><span class="eyebrow">YOUR ACCOUNT</span><h2>Order history<span>.</span></h2></div></div>
+      <div id="myOrders" class="orders-list"></div>
+    </section>
+
+    <section id="adminArea" class="admin-area hidden">
+      <div class="section-heading"><div><span class="eyebrow">MANAGEMENT CONSOLE</span><h2>Admin dashboard<span>.</span></h2><p>Manage medicine inventory, expiry dates and customer orders.</p></div><span class="admin-tag">ADMIN ACCESS</span></div>
+      <div id="stats" class="stats-grid"></div>
+      <div class="admin-columns">
+        <div class="panel"><div class="panel-heading"><div><h3 id="formTitle">Add a medicine</h3><p>Keep medicine and stock information up to date.</p></div></div>
+          <form id="medicineForm" class="medicine-form">
+            <input type="hidden" id="medicineId">
+            <label>Medicine name<input id="medName" required maxlength="150" placeholder="e.g. Paracetamol 500mg"></label>
+            <div class="form-row"><label>Category<input id="medCategory" required maxlength="50" placeholder="Pain Relief"></label><label>Manufacturer<input id="medManufacturer" maxlength="100" placeholder="Company name"></label></div>
+            <div class="form-row"><label>Price (₹)<input id="medPrice" type="number" min="0" step="0.01" required></label><label>Stock quantity<input id="medStock" type="number" min="0" step="1" required></label></div>
+            <label>Expiry date<input id="medExpiry" type="date" required></label>
+            <div class="form-actions"><button class="btn btn-dark" type="submit" id="saveMedicine">Save medicine</button><button class="btn btn-soft" type="button" id="cancelEdit">Reset</button></div>
+          </form>
+        </div>
+        <div class="panel inventory-panel"><div class="panel-heading"><div><h3>Inventory overview</h3><p>Update or remove catalogue entries.</p></div></div><div id="inventoryTable" class="table-wrap"></div></div>
+      </div>
+      <div class="panel admin-orders"><div class="panel-heading"><div><h3>Customer orders</h3><p>Review order items and update fulfilment status.</p></div></div><div id="adminOrders" class="table-wrap"></div></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">✚</span><span><b>Patan Nimraa Firdos</b><small>ONLINE PHARMACY</small></span></a><p>Medicine information is provided for catalogue purposes. Use medicines only as directed by a qualified healthcare professional.</p><span>© <span id="year"></span> Patan Nimraa Firdos</span></footer>
+
+  <div id="cartButton" class="cart-button" aria-label="Open cart">🛒 <span id="cartCount">0</span><b>Cart</b></div>
+  <div id="overlay" class="overlay hidden"></div>
+  <aside id="cartDrawer" class="drawer">
+    <div class="drawer-head"><div><span class="eyebrow">YOUR SELECTION</span><h2>Your cart</h2></div><button class="icon-btn" id="closeCart" aria-label="Close cart">×</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-bottom"><div class="total-line"><span>Order total</span><b id="cartTotal">₹0.00</b></div><button id="checkoutBtn" class="btn btn-dark btn-full">Place order <span>→</span></button><small>Final stock and prices are verified when you place your order.</small></div>
+  </aside>
+
+  <div id="authModal" class="modal-wrap hidden"><div class="modal"><button class="icon-btn modal-close" id="closeAuth">×</button><span class="eyebrow">WELCOME TO YOUR PHARMACY</span><h2 id="authTitle">Welcome back.</h2><p id="authSubtitle">Log in to manage your orders.</p>
+    <div class="auth-tabs"><button class="active" data-mode="login">Login</button><button data-mode="register">Create account</button></div>
+    <form id="authForm"><div id="nameField" class="hidden"><label>Full name<input id="authName" autocomplete="name"></label></div><label>Email address<input id="authEmail" type="email" required autocomplete="email"></label><div id="phoneField" class="hidden"><label>Phone number<input id="authPhone" maxlength="15" autocomplete="tel"></label></div><label>Password<input id="authPassword" type="password" required minlength="6" autocomplete="current-password"></label><button class="btn btn-dark btn-full" id="authSubmit">Login</button></form><p id="authMessage" class="form-message"></p>
+  </div></div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
