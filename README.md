@@ -1,4 +1,4 @@
-# Patan Nimraa Firdos — Online Pharmacy Management System
+# Patan Nimraa Firdos (24ATA05253) — Online Pharmacy Management System 
 
 A full-stack pharmacy ordering and inventory project using HTML, CSS, vanilla JavaScript, Express.js and MySQL.
 
